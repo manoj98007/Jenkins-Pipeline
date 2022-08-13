@@ -3,7 +3,22 @@ pipeline {
     stages {
        stage('Build') {
         steps {
-            sh 'echo "This is a Build stage"'
+            sh '''
+            #!/bin/bash
+            ls
+            pwd
+            echo "This is a Build stage"
+            '''
+          }
+        }
+        stage('Deploy') {
+        steps {
+            echo "This is a Deploy stage"
+          }
+        }
+        stage('Testing') {
+        steps {
+            sh 'echo "This is a Test stage"'
           }
         }
     }
