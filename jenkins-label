@@ -6,6 +6,7 @@ pipeline {
         stage('BUILD') {
             agent any
             steps {
+             git branch: 'main', url: 'https://github.com/manoj98007/Jenkins-Pipeline.git'
                 sh '''
                     #!/bin/bash 
                     pwd 
