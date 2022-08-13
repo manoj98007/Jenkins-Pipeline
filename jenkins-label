@@ -2,7 +2,7 @@ pipeline {
     agent none 
     stages {
        stage ('All') {
-       parallel
+       parallel {
         stage('BUILD') {
             agent any
             steps {
@@ -42,5 +42,6 @@ pipeline {
             }
         }
     }
+}
 }
 }
