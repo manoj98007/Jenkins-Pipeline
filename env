@@ -9,6 +9,7 @@ pipeline {
          agent any 
 	   environment {
 	     BUILD_ENV = 'Only for Build stage'
+	     }
           steps {
 		    git branch : env.BRANCH, url : env.GIT_REPO
 			  sh '''
