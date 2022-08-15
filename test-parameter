@@ -1,8 +1,8 @@
 pipeline{
    agent any
       parameters {
-          string(name : 'BRANCH' , defaultvalue : 'main' , description: 'enter the branch name' )
-          string(name : 'GIT_REPO' , defaultvalue : 'https://github.com/manoj98007/Jenkins-Pipeline.git' , description: 'enter the branch url')		  
+          string(name : 'BRANCH' , defaultValue : 'main' , description: 'enter the branch name' )
+          string(name : 'GIT_REPO' , defaultValue : 'https://github.com/manoj98007/Jenkins-Pipeline.git' , description: 'enter the branch url')		  
 	   }
 	  
     stages {
