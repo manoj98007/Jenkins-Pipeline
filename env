@@ -23,8 +23,9 @@ pipeline {
 	  steps {
 	       echo "This is DEPLOY stage"
               sh 'sleep 5'
-	      echo '$BUILD_env'
+	      echo '$BUILD_ENV'
        }
      }
    } 
+}
 }
