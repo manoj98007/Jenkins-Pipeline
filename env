@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+	  environment {
+       BRANCH = "main"
+       GIT_REPO = "https://github.com/manoj98007/Jenkins-Pipeline.git"
+}
+    stages {
+	  agent {label 'node1'}
+		stage('BUILD') {
+          steps {
+		    git branch : ${env.BRANCH}, url : ${env.GIT_REPO}
+			  sh '''
+			     pwd
+				 ls
+				 echo "This is BUILD stage"
+                 '''        
+  }
+}
+}
+}
