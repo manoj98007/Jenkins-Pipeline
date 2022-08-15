@@ -8,7 +8,7 @@ pipeline {
 	stage('BUILD') {
          agent any   
           steps {
-		    git branch : $env.BRANCH, url : $env.GIT_REPO
+		    git branch : env.BRANCH, url : env.GIT_REPO
 			  sh '''
 			     pwd
 				 ls
