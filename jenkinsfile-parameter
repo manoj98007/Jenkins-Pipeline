@@ -10,42 +10,48 @@ pipeline {
         stage('Build') {
             agent any
             steps {
-                git branch: params.BRANCH, url: params.GIT_REPO
+                script {
+                    if(params.STAGE == 'build')
+                    {
+                        git branch: params.BRANCH, url: params.GIT_REPO
+                        sh '''
+                            #!/bin/bash 
+                            pwd 
+                            ls
+                            echo "This is a BUILD stage"
+                            sleep 5
+                        '''
+                    } else { 
+                        echo "Skipping BUILD stage ....."    
+                    }  
+                }       
                 sh '''
                     #!/bin/bash 
                     pwd 
                     ls
                     echo "This is a BUILD stage"
                     sleep 5
+                    exit 1
                 '''  
-                if(params.STAGE == 'build')
-                {
-                    git branch: params.BRANCH, url: params.GIT_REPO
-                    sh '''
-                        #!/bin/bash 
-                        pwd 
-                        ls
-                        echo "This is a BUILD stage"
-                        sleep 5
-                    ''' 
-                }     
             }
         }
 
         stage('DEPLOY') {
             agent { label 'node1' } 
             steps {
+                script {
+                    if(params.STAGE == 'deploy')
+                    {
+                        echo "This is a DEPLOY stage"
+                        sh 'sleep 5'
+                        echo "${params.BRANCH}"
+                        echo "${params.GIT_REPO}"
+                    } else {
+                        echo "Skipping DEPLOY stage ....."
+                    }
+                }       
                 echo "This is a DEPLOY stage"
                 sh 'sleep 5'
-                echo "${params.BRANCH}"
-                echo "${params.GIT_REPO}"
-                if(params.STAGE == 'deploy')
-                {
-                    echo "This is a DEPLOY stage"
-                    sh 'sleep 5'
-                    echo "${params.BRANCH}"
-                    echo "${params.GIT_REPO}"
-                }    
             }
         }
     }
