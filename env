@@ -6,7 +6,7 @@ pipeline {
 }
     stages {
 	stage('BUILD') {
-         agent {label 'node1'}   
+         agent any   
           steps {
 		    git branch : $env.BRANCH, url : $env.GIT_REPO
 			  sh '''
