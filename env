@@ -5,16 +5,25 @@ pipeline {
        GIT_REPO = "https://github.com/manoj98007/Jenkins-Pipeline.git"
 }
     stages {
-	  agent {label 'node1'}
-		stage('BUILD') {
+	stage('BUILD') {
+         agent none 
           steps {
-		    git branch : ${env.BRANCH}, url : ${env.GIT_REPO}
+		    git branch : env.BRANCH, url : env.GIT_REPO
 			  sh '''
 			     pwd
 				 ls
 				 echo "This is BUILD stage"
                  '''        
-  }
-}
-}
+           } 
+        }
+       stage("DEPLOY") {
+         agent any
+	  steps {
+	       echo "This is DEPLOY stage"
+              sh 'sleep 5'
+	      echo "$BRANCH $GIT_REPO"
+	   
+       }
+     }
+   } 
 }
