@@ -6,14 +6,14 @@ pipeline {
 		      stage('Testing1') {
 			    agent { label 'master'}
 				steps {
-				 git branch: 'master', url: 'https://github.com/manoj98007/Jenkins-Pipeline.git'
+				 git branch: 'main', url: 'https://github.com/manoj98007/Jenkins-Pipeline.git'
 				sh 'echo "This is Testing1 stage"'
 			  }
           	}
 			  stage('Testing2') {
 			     agent { label 'master' }
 			         steps {
-				  git branch: 'master', url: 'https://github.com/manoj98007/Jenkins-Pipeline.git'
+				  git branch: 'main', url: 'https://github.com/manoj98007/Jenkins-Pipeline.git'
 				   sh 'echo "This is Testing2 stage"'
 					
 			  }
