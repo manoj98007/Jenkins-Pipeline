@@ -8,6 +8,7 @@ pipeline {
                 }
     
      stages {
+       parallel {
         stage ("Testing1") {
             steps {
                 script {
@@ -45,6 +46,6 @@ pipeline {
             }
         }
 
-
+      }
      }  
 }
