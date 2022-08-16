@@ -7,7 +7,7 @@ pipeline {
 			    agent { label 'master'}
 				steps {
 				sh 'echo "This is Testing1 stage"
-                sleep 5'
+                                 sleep 5'
 			  }
           	}
 			  stage('Testing2') {
@@ -17,8 +17,8 @@ pipeline {
 				    sleep 5'
 					
 			  }
-			}
+		      }
 		  }
-		}
+	    }
 	}
 }	
