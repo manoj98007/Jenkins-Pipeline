@@ -2,6 +2,7 @@ pipeline {
     agent none
 	 stages {
 	    stage ('TESTING') {
+	    git 'https://github.com/manoj98007/Jenkins-Pipeline.git'
 		  parallel {
 		      stage('Testing1') {
 			    agent { label 'master'}
