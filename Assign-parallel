@@ -2,11 +2,11 @@ pipeline {
     agent none
 	 stages {
 	    stage ('TESTING') {
-	    git 'https://github.com/manoj98007/Jenkins-Pipeline.git'
 		  parallel {
 		      stage('Testing1') {
 			    agent { label 'master'}
 				steps {
+				 git branch: 'master', url: 'https://github.com/manoj98007/Jenkins-Pipeline.git'
 				sh 'echo "This is Testing1 stage"'
 			  }
           	}
