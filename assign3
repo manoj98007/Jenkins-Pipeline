@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'BRANCH', description: 'Enter the branch to build', defaultValue: '')
+                }
+    environment {
+                GIT_REPO = "https://github.com/manoj98007/Jenkins-Pipeline.git"
+                }
+    
+     stages {
+        stage ("Testing1") {
+            steps {
+                script {
+                    if(params.BRANCH == 'master')
+                    {
+                        git branch: params.BRANCH, url: env.GIT_REPO
+                        sh '''
+                            #!/bin/bash 
+                            pwd 
+                            ls
+                            echo "This is a Testing1 stage"
+                            
+                        '''
+                    } else { 
+                        echo "Skipping Testing1 stage ....."    
+                    }  
+
+                }
+            }
+        }
+
+        stage ("Testing2") {
+            steps {
+                script {
+                    if(params.BRANCH == 'master')
+                    {
+                        git branch: params.BRANCH, url: env.GIT_REPO
+                        sh 'echo "This is a Testing2 stage"'   
+                        
+                    } else { 
+                        echo "This is not master branch "    
+                    }  
+                    
+                }
+            }
+        }
+
+
+     }  
+}
