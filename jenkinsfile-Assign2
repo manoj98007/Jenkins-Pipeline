@@ -9,7 +9,7 @@ pipeline {
                          branch 'master'
                         }
                         steps {
-                           echo "this is build stage"
+                           echo "This is Testing1 stage"
                          }
                      
                     }
@@ -18,7 +18,7 @@ pipeline {
                          branch 'master'
                         }
                         steps { 
-                          echo "this is deploy stage"
+                          echo "This is Testing2 stage"
                       }
                     }
                 }
