@@ -6,15 +6,13 @@ pipeline {
 		      stage('Testing1') {
 			    agent { label 'master'}
 				steps {
-				sh '''echo "This is Testing1 stage"
-                                 sleep 5'''
+				sh 'echo "This is Testing1 stage"'
 			  }
           	}
 			  stage('Testing2') {
 			     agent { label 'master' }
 				  steps {
-				   sh ''' echo "This is Testing2 stage"
-				    sleep 5'''
+				   sh 'echo "This is Testing2 stage"'
 					
 			  }
 		      }
