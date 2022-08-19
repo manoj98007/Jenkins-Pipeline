@@ -8,6 +8,8 @@ pipeline {
                 }
     
      stages {
+       stage ('TESTING') {
+       parallel {
         stage ("Testing1") {
             steps {
                 script {
@@ -40,11 +42,11 @@ pipeline {
                     } else { 
                         echo "This is not master branch "    
                     }  
-                    
+                   } 
                 }
             }
-        }
+         }
 
-
-     }  
+       }
+    }  
 }
