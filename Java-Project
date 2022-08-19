@@ -19,7 +19,7 @@ pipeline{
 	   stage('Deploy war file to tomcat'){
 	    agent { label 'node2' }
 		 steps{
-		    sh 'sudo cp /opt/jenkins/workspace/Java-Project/target/*.war /opt/apache-tomcat-9.0.65/webapps'
+		    sh 'sudo cp /opt/jenkins/workspace/target/*.war /opt/apache-tomcat-9.0.65/webapps'
 	        echo "Deploy is successfull"   
 		}
     }
